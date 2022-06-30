@@ -13,12 +13,23 @@
   </head>
 
   <body>
+  <div>
+    <%# <p class="notice"><%= notice</p> %>
+    <% unless alert.nil? %>
+      <p class="alert alert-dark"><%= alert %></p>
+    <% end %>
+   </div>
 
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <%= render "shared/navbar"  %>
-
-    <%= yield %>
+   <div class= "page-container">
+      <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <% if params[:controller] == "pages" %>
+        <%= render "shared/banner" %>
+      <% end %>
+      <div class="content-container">
+        <%= yield %>
+      </div>
+      <div class="footer-container"><%= render "shared/footer" %></div>
+   </div>
   </body>
-  <footer> <%= render "/shared/footer" %> </footer>
+
 </html>

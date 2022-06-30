@@ -1,0 +1,10 @@
+<div class="container">
+  <h1> Edit the service </h1>
+  <%= simple_form_for @service do |f| %>
+    <%= f.input :skill_name , placeholder: "What is your skill" %>
+    <%= f.input :price_per_hour,placeholder: "How much per hour?" %>
+    <%= f.input :availability, placeholder: "yes or no" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Update", class: "btn btn-dark" %>
+  <% end %>
+</div>

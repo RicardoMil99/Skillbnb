@@ -1,0 +1,57 @@
+<div class="container">
+  <% if current_user.role == "teacher"  %>
+  <h1> My services</h1>
+  <div>
+  <ul class="list-group list-group">
+    <% @services.each do |service| %>
+      <div class="bookings">
+      <li class="list-group-item"><%= image_tag ("S_logo.jpg"), class: "img_small"%> <br>
+      <strong>Lesson: </strong><%="#{service.skill_name} - ($#{service.price_per_hour} per hour)"  %>
+      <%= link_to service_path(service), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+      <%= link_to edit_service_path(service) do %>
+      <i class="fas fa-edit"></i>
+      <% end %>
+      </li>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h1> My booked services</h1>
+  <div>
+  <ul class="list-group list-group">
+    <% @bookings.each do |b| %>
+      <div class="bookings">
+      <li class="list-group-item"><%= image_tag ("S_logo.jpg"), class: "img_small"%><br>
+        <strong>Lesson: </strong><%= b.service.skill_name %>
+          <%= simple_form_for b do |f| %>
+          <%= f.input :status, label: 'Status:', collection:['pending','confirmed', 'cancelled'] %>
+            <%= f.button :submit, "Submit", class: "btn btn-dark"%>
+            <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <h1> My bookings </h1>
+  <div>
+    <ul class="list-group list-group">
+    <% @student_booking.each do |b| %>
+      <div class="bookings">
+        <li class="list-group-item"><%= image_tag ("S_logo.jpg"), class: "img_small"%><br> <strong>Lesson:</strong> <%= b.service.skill_name %><br> <strong>Status:</strong> <%= b.status %></li>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>

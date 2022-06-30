@@ -1,0 +1,25 @@
+<div class="container">
+`	<section class="features-overview" id="features-section" style="text-align:  center;">
+    <div class="content-header">
+      <h2>Hot right now 🔥</h2>
+      <h6 class="section-subtitle text-muted">Have a look at our top 3 skills at the moment!</h6>
+    </div>
+    <div class="d-flex justify-content-between">
+      <% @services.each do |s| %>
+        <div class="d-md-flex justify-content-between">
+          <div class="grid-margin d-flex justify-content-start">
+            <div class="features-width">
+              <div class="">
+                <%= cl_image_tag s.photo.key , class: "home-img"%>
+              <%# <img src="images/Group12.svg" alt="" class="img-icons"> %>
+                <h5 class="py-3"><%= s.skill_name %></h5>
+                <div class="home-service-description"><p class="text-muted"><%= s.description %></p></div>
+                <%= link_to "See More", s, class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

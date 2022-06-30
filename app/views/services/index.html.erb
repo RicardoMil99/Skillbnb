@@ -1,0 +1,31 @@
+
+<div class="container py-5">
+
+  <h1> Services </h1>
+
+  <div class="searchbar my-4" >
+
+      <%= form_tag services_path, method: :get do %>
+      <div class="form">
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a skill",
+              autocomplete: 'off' %>
+          <%= submit_tag "Search", class: "btn btn-dark" %>
+          </div>
+      <% end %>
+
+  </div>
+  <div class='cards'>
+    <% @services.each do |s| %>
+      <% if s.photo.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path s.photo.key, height: 300, crop: :fill %>')">
+      <% else %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://wallpaperaccess.com/full/1078877.jpg)">
+      <% end  %>
+        <%= link_to s.skill_name, service_path(s), class:'link' %>
+      </div>
+    <% end %>
+   </div>
+</div>

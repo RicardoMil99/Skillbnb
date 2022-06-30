@@ -1,0 +1,28 @@
+h1 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  margin: 10px
+}
+
+.list-group-item {
+  margin-top: 10px;
+  box-shadow: 5px 10px black;
+}
+label {
+  font-weight: bold;
+}
+
+.img_small {
+  width: auto;
+  height: auto;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
